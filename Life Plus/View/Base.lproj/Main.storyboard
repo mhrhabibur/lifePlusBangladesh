@@ -106,13 +106,42 @@
                     <view key="view" contentMode="scaleToFill" id="RYo-e8-BGe">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eb8-5t-PgW">
+                                <rect key="frame" x="10" y="59" width="373" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Owq-nr-oUc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="eb8-5t-PgW" firstAttribute="leading" secondItem="Owq-nr-oUc" secondAttribute="leading" constant="10" id="Agz-2s-Kei"/>
+                            <constraint firstItem="Owq-nr-oUc" firstAttribute="trailing" secondItem="eb8-5t-PgW" secondAttribute="trailing" constant="10" id="VCN-Zd-r4j"/>
+                            <constraint firstItem="eb8-5t-PgW" firstAttribute="top" secondItem="Owq-nr-oUc" secondAttribute="top" id="ZWt-sM-z2L"/>
+                            <constraint firstItem="eb8-5t-PgW" firstAttribute="centerX" secondItem="RYo-e8-BGe" secondAttribute="centerX" id="mL0-Tz-rsu"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="nAG-av-nVq"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SDc-pn-Kqq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1053" y="659"/>
+            <point key="canvasLocation" x="1053" y="668"/>
+        </scene>
+        <!--User Profile View Controller-->
+        <scene sceneID="yhW-Sr-sj2">
+            <objects>
+                <viewController storyboardIdentifier="UserProfileVC" id="TVb-7b-o81" customClass="UserProfileViewController" customModule="Life_Plus" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wt1-Zv-OZw">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ogB-CG-h5u"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UIL-by-SgU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2140" y="668"/>
         </scene>
         <!--Registration View Controller-->
         <scene sceneID="P0s-TV-wYw">

@@ -15,6 +15,7 @@
 		17BF1E092A01291900F1E530 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17BF1E072A01291900F1E530 /* LaunchScreen.storyboard */; };
 		17BF1E142A0138FE00F1E530 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BF1E132A0138FE00F1E530 /* RegistrationViewController.swift */; };
 		17BF1E162A013F9700F1E530 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BF1E152A013F9700F1E530 /* LogInViewController.swift */; };
+		17BF1E182A01422F00F1E530 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BF1E172A01422F00F1E530 /* UserProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		17BF1E0A2A01291900F1E530 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17BF1E132A0138FE00F1E530 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		17BF1E152A013F9700F1E530 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		17BF1E172A01422F00F1E530 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				17BF1E002A01291500F1E530 /* HomeViewController.swift */,
 				17BF1E132A0138FE00F1E530 /* RegistrationViewController.swift */,
 				17BF1E152A013F9700F1E530 /* LogInViewController.swift */,
+				17BF1E172A01422F00F1E530 /* UserProfileViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17BF1E012A01291500F1E530 /* HomeViewController.swift in Sources */,
+				17BF1E182A01422F00F1E530 /* UserProfileViewController.swift in Sources */,
 				17BF1DFD2A01291500F1E530 /* AppDelegate.swift in Sources */,
 				17BF1E142A0138FE00F1E530 /* RegistrationViewController.swift in Sources */,
 				17BF1E162A013F9700F1E530 /* LogInViewController.swift in Sources */,
