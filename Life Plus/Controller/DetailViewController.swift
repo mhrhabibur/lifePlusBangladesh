@@ -9,6 +9,12 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
+    var posterImage: String?
+    var name: String?
+    var genre: String?
+    var network: String?
+    var schedule: String?
+    
     @IBOutlet var posterImageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var genreLabel: UILabel!
@@ -19,18 +25,34 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Detail Page"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrowshape.turn.up.right"), style: .plain, target: self, action: #selector(shareContent))
         goBackButton.layer.masksToBounds = true
         goBackButton.layer.cornerRadius = 12
+        if let posterImage = posterImage {
+            
+            let url = URL(string: posterImage)!
+            DispatchQueue.global().async { [weak self] in
+                        if let data = try? Data(contentsOf: url) {
+                            if let image = UIImage(data: data) {
+                                DispatchQueue.main.async {
+                                    self?.posterImageView.image = image
+                                }
+                            }
+                        }
+                    }
+        }
+        if let name = name {
+            nameLabel.text = "Show Name: \(name)"
+        }
+        if let genre = genre {
+            genreLabel.text = "Genre: \(genre)"
+        }
+        if let network = network {
+            networkLabel.text = "Available At: \(network)"
+        }
+        if let schedule = schedule {
+            scheduleLabel.text = "Schedule: \(schedule)"
+        }
     }
-    
-    @objc func shareContent() {
-        let shareText = "Hello, world!"
-
-            let vc = UIActivityViewController(activityItems: [shareText], applicationActivities: [])
-            present(vc, animated: true)
-    }
-    
     @IBAction func goBackButtonTapped(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
