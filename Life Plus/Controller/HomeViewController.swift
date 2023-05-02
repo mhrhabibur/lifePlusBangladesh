@@ -16,7 +16,6 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Life Plus"
         logInButton.layer.cornerRadius = 12
         logInButton.layer.masksToBounds = true
         registrationButton.layer.masksToBounds = true
@@ -24,19 +23,14 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func logInButtonTapped(_ sender: UIButton) {
-        let logInVC = storyboard?.instantiateViewController(withIdentifier: "LogInVC") as! LogInViewController
+        let logInVC = storyboard?.instantiateViewController(withIdentifier: "LogInVC") as! DashboardViewController
         navigationController?.pushViewController(logInVC, animated: true)
     }
     
-    
     @IBAction func registrationButtonTapped(_ sender: UIButton) {
-        
-        print("Registration Button Tapped")
         let registrationVC = storyboard?.instantiateViewController(withIdentifier: "RegistrationVC") as! RegistrationViewController
         navigationController?.pushViewController(registrationVC, animated: true)
     }
     
-
-
 }
 

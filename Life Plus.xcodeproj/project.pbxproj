@@ -14,8 +14,11 @@
 		17BF1E062A01291900F1E530 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17BF1E052A01291900F1E530 /* Assets.xcassets */; };
 		17BF1E092A01291900F1E530 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17BF1E072A01291900F1E530 /* LaunchScreen.storyboard */; };
 		17BF1E142A0138FE00F1E530 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BF1E132A0138FE00F1E530 /* RegistrationViewController.swift */; };
-		17BF1E162A013F9700F1E530 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BF1E152A013F9700F1E530 /* LogInViewController.swift */; };
+		17BF1E162A013F9700F1E530 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BF1E152A013F9700F1E530 /* DashboardViewController.swift */; };
 		17BF1E182A01422F00F1E530 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BF1E172A01422F00F1E530 /* UserProfileViewController.swift */; };
+		17BF1E1A2A014DD800F1E530 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BF1E192A014DD800F1E530 /* DetailViewController.swift */; };
+		17BF1E1C2A015C7300F1E530 /* TVShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BF1E1B2A015C7300F1E530 /* TVShow.swift */; };
+		17BF1E1E2A015E3600F1E530 /* TVShowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BF1E1D2A015E3600F1E530 /* TVShowManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,8 +31,11 @@
 		17BF1E082A01291900F1E530 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		17BF1E0A2A01291900F1E530 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17BF1E132A0138FE00F1E530 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
-		17BF1E152A013F9700F1E530 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		17BF1E152A013F9700F1E530 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		17BF1E172A01422F00F1E530 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		17BF1E192A014DD800F1E530 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		17BF1E1B2A015C7300F1E530 /* TVShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShow.swift; sourceTree = "<group>"; };
+		17BF1E1D2A015E3600F1E530 /* TVShowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,8 +85,9 @@
 			children = (
 				17BF1E002A01291500F1E530 /* HomeViewController.swift */,
 				17BF1E132A0138FE00F1E530 /* RegistrationViewController.swift */,
-				17BF1E152A013F9700F1E530 /* LogInViewController.swift */,
+				17BF1E152A013F9700F1E530 /* DashboardViewController.swift */,
 				17BF1E172A01422F00F1E530 /* UserProfileViewController.swift */,
+				17BF1E192A014DD800F1E530 /* DetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -96,6 +103,8 @@
 		17BF1E122A0138C300F1E530 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				17BF1E1B2A015C7300F1E530 /* TVShow.swift */,
+				17BF1E1D2A015E3600F1E530 /* TVShowManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -173,10 +182,13 @@
 			files = (
 				17BF1E012A01291500F1E530 /* HomeViewController.swift in Sources */,
 				17BF1E182A01422F00F1E530 /* UserProfileViewController.swift in Sources */,
+				17BF1E1C2A015C7300F1E530 /* TVShow.swift in Sources */,
 				17BF1DFD2A01291500F1E530 /* AppDelegate.swift in Sources */,
 				17BF1E142A0138FE00F1E530 /* RegistrationViewController.swift in Sources */,
-				17BF1E162A013F9700F1E530 /* LogInViewController.swift in Sources */,
+				17BF1E162A013F9700F1E530 /* DashboardViewController.swift in Sources */,
 				17BF1DFF2A01291500F1E530 /* SceneDelegate.swift in Sources */,
+				17BF1E1E2A015E3600F1E530 /* TVShowManager.swift in Sources */,
+				17BF1E1A2A014DD800F1E530 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
