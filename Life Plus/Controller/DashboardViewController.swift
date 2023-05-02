@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DashboardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class DashboardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     let tvShowManager = TVShowManager()
     var tvShows = [TVShow]()
@@ -18,19 +18,14 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Dashboard"
+        searchTextField.delegate = self
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "View Profile", style: .done, target: self, action: #selector(viewUserProfile))
         tableView.delegate = self
         tableView.dataSource = self
         searchButton.layer.masksToBounds = true
         searchButton.layer.cornerRadius = 12
-        tvShowManager.fetchTVShowData { tvShow, error in
-            if let tvShowList = tvShow {
-                self.tvShows = [tvShowList]
-        }
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
+        searchTextField.addTarget(self, action: #selector(searchTvShow(_:)), for: .editingChanged)
+       
     }
     
     @objc func viewUserProfile() {
@@ -39,6 +34,15 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     @IBAction func searchButtonTapped(_ sender: UIButton) {
+        let searchText = searchTextField.text
+        tvShowManager.fetchTVShowData(name: searchText ?? "") { tvShow, error in
+            if let tvShowList = tvShow {
+                self.tvShows = [tvShowList]
+        }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -56,10 +60,25 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
         if let detailVC = storyboard?.instantiateViewController(withIdentifier: "DetailVC") as? DetailViewController {
             detailVC.posterImage = tvShows[indexPath.row].image?.original
             detailVC.name = tvShows[indexPath.row].name
-            detailVC.genre = tvShows[indexPath.row].genres?[0]
             detailVC.network = tvShows[indexPath.row].network?.name
             detailVC.schedule = tvShows[indexPath.row].schedule?.days?[0]
+            detailVC.time = tvShows[indexPath.row].schedule?.time
             navigationController?.pushViewController(detailVC, animated: true)
         }
     }
+    
+    @IBAction func searchTvShow(_ sender: UITextField) {
+        let searchText = searchTextField.text ?? ""
+        DispatchQueue.global().async {
+            self.tvShowManager.fetchTVShowData(name: searchText) { tvShow, error in
+                if let tvShowList = tvShow {
+                    self.tvShows = [tvShowList]
+                }
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
+    }
+    
 }
