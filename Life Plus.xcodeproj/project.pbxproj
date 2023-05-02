@@ -13,6 +13,8 @@
 		17BF1E042A01291500F1E530 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17BF1E022A01291500F1E530 /* Main.storyboard */; };
 		17BF1E062A01291900F1E530 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17BF1E052A01291900F1E530 /* Assets.xcassets */; };
 		17BF1E092A01291900F1E530 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17BF1E072A01291900F1E530 /* LaunchScreen.storyboard */; };
+		17BF1E142A0138FE00F1E530 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BF1E132A0138FE00F1E530 /* RegistrationViewController.swift */; };
+		17BF1E162A013F9700F1E530 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BF1E152A013F9700F1E530 /* LogInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		17BF1E052A01291900F1E530 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17BF1E082A01291900F1E530 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		17BF1E0A2A01291900F1E530 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		17BF1E132A0138FE00F1E530 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		17BF1E152A013F9700F1E530 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +62,39 @@
 			children = (
 				17BF1DFC2A01291500F1E530 /* AppDelegate.swift */,
 				17BF1DFE2A01291500F1E530 /* SceneDelegate.swift */,
-				17BF1E002A01291500F1E530 /* HomeViewController.swift */,
-				17BF1E022A01291500F1E530 /* Main.storyboard */,
+				17BF1E122A0138C300F1E530 /* Model */,
+				17BF1E112A0138B000F1E530 /* View */,
+				17BF1E102A0138A100F1E530 /* Controller */,
 				17BF1E052A01291900F1E530 /* Assets.xcassets */,
 				17BF1E072A01291900F1E530 /* LaunchScreen.storyboard */,
 				17BF1E0A2A01291900F1E530 /* Info.plist */,
 			);
 			path = "Life Plus";
+			sourceTree = "<group>";
+		};
+		17BF1E102A0138A100F1E530 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				17BF1E002A01291500F1E530 /* HomeViewController.swift */,
+				17BF1E132A0138FE00F1E530 /* RegistrationViewController.swift */,
+				17BF1E152A013F9700F1E530 /* LogInViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		17BF1E112A0138B000F1E530 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				17BF1E022A01291500F1E530 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		17BF1E122A0138C300F1E530 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,6 +170,8 @@
 			files = (
 				17BF1E012A01291500F1E530 /* HomeViewController.swift in Sources */,
 				17BF1DFD2A01291500F1E530 /* AppDelegate.swift in Sources */,
+				17BF1E142A0138FE00F1E530 /* RegistrationViewController.swift in Sources */,
+				17BF1E162A013F9700F1E530 /* LogInViewController.swift in Sources */,
 				17BF1DFF2A01291500F1E530 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

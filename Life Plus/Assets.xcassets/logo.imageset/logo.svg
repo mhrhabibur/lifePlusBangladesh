@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="125.305" height="88.324" viewBox="0 0 125.305 88.324">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #05b51d;
+      }
+
+      .cls-2 {
+        fill: #0080ff;
+      }
+
+      .cls-3, .cls-4 {
+        isolation: isolate;
+      }
+
+      .cls-4 {
+        fill: #ecf6ff;
+        font-size: 6px;
+        font-family: Arial-BoldMT, Arial;
+        font-weight: 700;
+        letter-spacing: 0.233em;
+      }
+    </style>
+  </defs>
+  <g id="Lifeplus_Logo" data-name="Lifeplus Logo" transform="translate(138.824 96.514)">
+    <g id="Group_17871" data-name="Group 17871" transform="translate(-138.824 -96.514)">
+      <path id="Path_1" data-name="Path 1" class="cls-1" d="M9.484,99.293C2.534,99.293,0,96.507,0,89.2V51.469H9.484V89.88H23.056v9.37H9.484Z" transform="translate(0 -27.958)"/>
+      <path id="Path_2" data-name="Path 2" class="cls-2" d="M59.326,73.211v30.77h8.417l0,0,.041-30.775Zm4.021-13.106a4.823,4.823,0,1,0,4.685,5V65.1A4.846,4.846,0,0,0,63.347,60.105Z" transform="translate(-32.099 -32.649)"/>
+      <path id="Path_3" data-name="Path 3" class="cls-1" d="M90.645,99.244V76.7H85.78V68.516h4.865v-5.15a11.781,11.781,0,0,1,3.761-8.821c2.535-2.364,4.947-3.166,9.321-3.166h1.431v7.935H104.3c-3.557,0-5.069,1.477-5.069,4.854v4.263h5.888v8.232h-5.93V99.2l-8.543.042Z" transform="translate(-47.067 -27.909)"/>
+      <path id="Path_4" data-name="Path 4" class="cls-2" d="M147.267,111.448c-2.825,0-4.784-1.352-6.093-4.262H155.6c4.008,0,6.661-2.2,6.661-5.4,0-7.09-7.113-13.636-14.88-13.636a15.731,15.731,0,0,0,.086,31.446c6.58,0,11.851-3.883,14.266-10.337v0l-9.685-.041A6.131,6.131,0,0,1,147.267,111.448Zm-.045-15.111c2.983,0,4.946,1.393,6.093,4.431H140.967A6.457,6.457,0,0,1,147.222,96.336Z" transform="translate(-72.536 -47.881)"/>
+      <path id="Path_5" data-name="Path 5" class="cls-1" d="M204.893,61.818h12.959V88.453a13.292,13.292,0,0,1-12.959-11.146Z" transform="translate(-112.423 -33.58)"/>
+      <path id="Path_6" data-name="Path 6" class="cls-1" d="M217.852,26.171H204.893V0s10.629-.211,12.959,10.975v15.2Z" transform="translate(-112.423 0)"/>
+      <path id="Path_7" data-name="Path 7" class="cls-2" d="M237.774,59.13v-13.3h17.987s.693,10.721-10.629,13.3Z" transform="translate(-130.465 -24.897)"/>
+      <path id="Path_8" data-name="Path 8" class="cls-2" d="M179.393,45.833v13.3H161.407s-.693-10.722,10.629-13.3Z" transform="translate(-88.558 -24.897)"/>
+      <g id="Healthcare_At_Your_Finger_Tips" data-name="Healthcare At Your Finger Tips" class="cls-3" transform="translate(0.202 81.324)">
+        <text id="Healthcare_At_Your_Fingertips" data-name="Healthcare At Your Fingertips" class="cls-4" transform="translate(0 5)"><tspan x="0" y="0">Healthcare At Your Fingertips</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>
