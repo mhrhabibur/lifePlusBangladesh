@@ -25,7 +25,6 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
         searchButton.layer.masksToBounds = true
         searchButton.layer.cornerRadius = 12
         searchTextField.addTarget(self, action: #selector(searchTvShow(_:)), for: .editingChanged)
-       
     }
     
     @objc func viewUserProfile() {
