@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import SDWebImage
 
 class DetailViewController: UIViewController {
     
-    var posterImage: String?
+    var imageURL: String?
     var name: String?
     var network: String?
-    var schedule: String?
+    var schedule: [String]?
     var time: String?
     
     @IBOutlet var posterImageView: UIImageView!
@@ -25,17 +26,10 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         goBackButton.layer.masksToBounds = true
         goBackButton.layer.cornerRadius = 12
-        if let posterImage = posterImage {
+        
+        if let posterImage = imageURL {
             let url = URL(string: posterImage)!
-            DispatchQueue.global().async { [weak self] in
-                        if let data = try? Data(contentsOf: url) {
-                            if let image = UIImage(data: data) {
-                                DispatchQueue.main.async {
-                                    self?.posterImageView.image = image
-                                }
-                            }
-                        }
-                    }
+            posterImageView.sd_setImage(with: url, placeholderImage: UIImage(systemName: "person"))
         }
         if let name = name {
             nameLabel.text = "Show Name: \(name)"
@@ -44,13 +38,18 @@ class DetailViewController: UIViewController {
         if let network = network {
             networkLabel.text = "Available At: \(network)"
         }
-        if let schedule = schedule , let time = time {
-            scheduleLabel.text = "Schedule: \(time), On \(schedule)"
+        
+        if let  time = time {
+            scheduleLabel.text = "\(time)"
         }
         
+        if schedule?.count != 0 {
+            scheduleLabel.text = "Schedule: \(time!), On \(schedule![0])"
+        } else {
+            scheduleLabel.text = "No Date Found"
+        }
     }
     @IBAction func goBackButtonTapped(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
-    
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class DashboardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
@@ -55,26 +56,28 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
         let urlString = tvShows[indexPath.row].image?.original
         if let urlString = urlString {
             let url = URL(string: urlString)!
-            DispatchQueue.global().async { [weak self] in
-                if let data = try? Data(contentsOf: url) {
-                    if let image = UIImage(data: data) {
-                        DispatchQueue.main.async {
-                            cell.poster.image = image
-                        }
-                    }
-                }
-            }
+            cell.poster.sd_setImage(with: url, placeholderImage: UIImage(systemName: "person"))
+//            DispatchQueue.global().async { [weak self] in
+//                if let data = try? Data(contentsOf: url) {
+//                    if let image = UIImage(data: data) {
+//                        DispatchQueue.main.async {
+//                            cell.poster.image = image
+//                        }
+//                    }
+//                }
+//            }
         }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let detailVC = storyboard?.instantiateViewController(withIdentifier: "DetailVC") as? DetailViewController {
-            detailVC.posterImage = tvShows[indexPath.row].image?.original
+            detailVC.imageURL = tvShows[indexPath.row].image?.original
             detailVC.name = tvShows[indexPath.row].name
             detailVC.network = tvShows[indexPath.row].network?.name
-            detailVC.schedule = tvShows[indexPath.row].schedule?.days?[0]
+            detailVC.schedule = tvShows[indexPath.row].schedule?.days
             detailVC.time = tvShows[indexPath.row].schedule?.time
+            
             navigationController?.pushViewController(detailVC, animated: true)
         }
     }
