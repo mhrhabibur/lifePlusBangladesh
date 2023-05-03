@@ -25,5 +25,4 @@ class RegistrationViewController: UIViewController {
     @IBAction func registerButtonTapped(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
-    
 }

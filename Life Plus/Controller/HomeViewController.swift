@@ -31,6 +31,5 @@ class HomeViewController: UIViewController {
         let registrationVC = storyboard?.instantiateViewController(withIdentifier: "RegistrationVC") as! RegistrationViewController
         navigationController?.pushViewController(registrationVC, animated: true)
     }
-    
 }
 

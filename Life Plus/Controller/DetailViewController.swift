@@ -10,33 +10,45 @@ import SDWebImage
 
 class DetailViewController: UIViewController {
     
-    var imageURL: String?
-    var name: String?
-    var network: String?
-    var schedule: [String]?
-    var time: String?
-    
     @IBOutlet var posterImageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var networkLabel: UILabel!
     @IBOutlet var scheduleLabel: UILabel!
     @IBOutlet var goBackButton: UIButton!
     
+    var imageURL: String?
+    var showName: String?
+    var indexPath: Int?
+    var name: String?
+    var network: String?
+    var schedule: [String]?
+    var time: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         goBackButton.layer.masksToBounds = true
         goBackButton.layer.cornerRadius = 12
-        
-        if let posterImage = imageURL {
-            let url = URL(string: posterImage)!
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.clockwise"), style: .plain, target: self, action: #selector(refreshPage))
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        refreshPage()
+    }
+    @IBAction func goBackButtonTapped(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func refreshPage() {
+        if let imageURL = imageURL {
+            let url = URL(string: imageURL)!
             posterImageView.sd_setImage(with: url, placeholderImage: UIImage(systemName: "person"))
         }
         if let name = name {
-            nameLabel.text = "Show Name: \(name)"
+            nameLabel.text = "\(name)"
             navigationItem.title = "\(name)"
         }
         if let network = network {
-            networkLabel.text = "Available At: \(network)"
+            networkLabel.text = "\(network)"
         }
         
         if let  time = time {
@@ -44,12 +56,9 @@ class DetailViewController: UIViewController {
         }
         
         if schedule?.count != 0 {
-            scheduleLabel.text = "Schedule: \(time!), On \(schedule![0])"
+            scheduleLabel.text = "\(time!), \(schedule![0])"
         } else {
             scheduleLabel.text = "No Date Found"
         }
-    }
-    @IBAction func goBackButtonTapped(_ sender: UIButton) {
-        navigationController?.popViewController(animated: true)
     }
 }

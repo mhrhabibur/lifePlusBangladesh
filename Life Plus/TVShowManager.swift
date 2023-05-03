@@ -8,7 +8,6 @@
 import Foundation
 
 class TVShowManager {
-    
     func fetchTVShowData(name: String, compilation: @escaping(TVShow?, Error?)-> Void) {
         if let url = URL(string: "https://api.tvmaze.com/singlesearch/shows?q=\(name)") {
             URLSession.shared.dataTask(with: url) { data, response, error in

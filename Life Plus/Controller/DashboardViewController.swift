@@ -10,11 +10,12 @@ import SDWebImage
 
 class DashboardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
-    let tvShowManager = TVShowManager()
-    var tvShows = [TVShow]()
     @IBOutlet var searchTextField: UITextField!
     @IBOutlet var searchButton: UIButton!
     @IBOutlet var tableView: UITableView!
+    
+    let tvShowManager = TVShowManager()
+    var tvShows = [TVShow]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,15 +58,6 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
         if let urlString = urlString {
             let url = URL(string: urlString)!
             cell.poster.sd_setImage(with: url, placeholderImage: UIImage(systemName: "person"))
-//            DispatchQueue.global().async { [weak self] in
-//                if let data = try? Data(contentsOf: url) {
-//                    if let image = UIImage(data: data) {
-//                        DispatchQueue.main.async {
-//                            cell.poster.image = image
-//                        }
-//                    }
-//                }
-//            }
         }
         return cell
     }
@@ -77,7 +69,6 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
             detailVC.network = tvShows[indexPath.row].network?.name
             detailVC.schedule = tvShows[indexPath.row].schedule?.days
             detailVC.time = tvShows[indexPath.row].schedule?.time
-            
             navigationController?.pushViewController(detailVC, animated: true)
         }
     }
