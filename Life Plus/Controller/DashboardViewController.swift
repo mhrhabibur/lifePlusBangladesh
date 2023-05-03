@@ -50,8 +50,8 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath)
-        cell.textLabel?.text = "\(tvShows[indexPath.row].name ?? "")"
-        cell.detailTextLabel?.text = "\(tvShows[indexPath.row].network?.name ?? "")"
+        cell.textLabel?.text = "Show Name: \(tvShows[indexPath.row].name ?? "")"
+        cell.detailTextLabel?.text = "Network: \(tvShows[indexPath.row].network?.name ?? "")"
         return cell
     }
     
