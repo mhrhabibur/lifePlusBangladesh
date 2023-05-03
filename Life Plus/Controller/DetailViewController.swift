@@ -9,56 +9,50 @@ import UIKit
 import SDWebImage
 
 class DetailViewController: UIViewController {
-    
+
     @IBOutlet var posterImageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var networkLabel: UILabel!
     @IBOutlet var scheduleLabel: UILabel!
     @IBOutlet var goBackButton: UIButton!
     
-    var imageURL: String?
-    var showName: String?
-    var indexPath: Int?
-    var name: String?
-    var network: String?
-    var schedule: [String]?
-    var time: String?
+    var tvShows:[TVShow]?
+    var tvShowsList = [TVShow]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         goBackButton.layer.masksToBounds = true
         goBackButton.layer.cornerRadius = 12
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.clockwise"), style: .plain, target: self, action: #selector(refreshPage))
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        if let tvShow = tvShows {
+            tvShowsList = tvShow
+        }
         refreshPage()
     }
+    
     @IBAction func goBackButtonTapped(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
     
-    @objc func refreshPage() {
-        if let imageURL = imageURL {
-            let url = URL(string: imageURL)!
+    func refreshPage() {
+        if let posterImageURL = tvShowsList[0].image?.original {
+            let url = URL(string: posterImageURL)!
             posterImageView.sd_setImage(with: url, placeholderImage: UIImage(systemName: "person"))
         }
-        if let name = name {
-            nameLabel.text = "\(name)"
-            navigationItem.title = "\(name)"
+        if let showName = tvShowsList[0].name {
+            nameLabel.text = showName
         }
-        if let network = network {
-            networkLabel.text = "\(network)"
+        if let network = tvShowsList[0].network?.name {
+            networkLabel.text = network
         }
-        
-        if let  time = time {
-            scheduleLabel.text = "\(time)"
-        }
-        
-        if schedule?.count != 0 {
-            scheduleLabel.text = "\(time!), \(schedule![0])"
-        } else {
-            scheduleLabel.text = "No Date Found"
+        if let time = tvShowsList[0].schedule?.time, let schedule = tvShowsList[0].schedule?.days {
+            if schedule.count != 0 {
+                scheduleLabel.text = "\(time), \(schedule[0])"
+            } else {
+                scheduleLabel.text = "No Date Found"
+            }
         }
     }
 }

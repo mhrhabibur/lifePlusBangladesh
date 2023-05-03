@@ -64,11 +64,7 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let detailVC = storyboard?.instantiateViewController(withIdentifier: "DetailVC") as? DetailViewController {
-            detailVC.imageURL = tvShows[indexPath.row].image?.original
-            detailVC.name = tvShows[indexPath.row].name
-            detailVC.network = tvShows[indexPath.row].network?.name
-            detailVC.schedule = tvShows[indexPath.row].schedule?.days
-            detailVC.time = tvShows[indexPath.row].schedule?.time
+            detailVC.tvShows = tvShows
             navigationController?.pushViewController(detailVC, animated: true)
         }
     }
