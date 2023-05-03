@@ -49,9 +49,22 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath)
-        cell.textLabel?.text = "Show Name: \(tvShows[indexPath.row].name ?? "")"
-        cell.detailTextLabel?.text = "Network: \(tvShows[indexPath.row].network?.name ?? "")"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as! TVShowTableViewCell
+        cell.name.text = "\(tvShows[indexPath.row].name ?? "")"
+        cell.network.text = "\(tvShows[indexPath.row].network?.name ?? "")"
+        let urlString = tvShows[indexPath.row].image?.original
+        if let urlString = urlString {
+            let url = URL(string: urlString)!
+            DispatchQueue.global().async { [weak self] in
+                if let data = try? Data(contentsOf: url) {
+                    if let image = UIImage(data: data) {
+                        DispatchQueue.main.async {
+                            cell.poster.image = image
+                        }
+                    }
+                }
+            }
+        }
         return cell
     }
     

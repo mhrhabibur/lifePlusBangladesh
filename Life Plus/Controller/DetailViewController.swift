@@ -26,7 +26,6 @@ class DetailViewController: UIViewController {
         goBackButton.layer.masksToBounds = true
         goBackButton.layer.cornerRadius = 12
         if let posterImage = posterImage {
-            
             let url = URL(string: posterImage)!
             DispatchQueue.global().async { [weak self] in
                         if let data = try? Data(contentsOf: url) {
