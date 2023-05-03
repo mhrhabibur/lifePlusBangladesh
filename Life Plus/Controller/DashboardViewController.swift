@@ -37,7 +37,7 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
         tvShowManager.fetchTVShowData(name: searchText ?? "") { tvShow, error in
             if let tvShowList = tvShow {
                 self.tvShows = [tvShowList]
-        }
+            }
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -45,7 +45,7 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tvShows.count
+            return tvShows.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -67,17 +67,17 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     @IBAction func searchTvShow(_ sender: UITextField) {
-        let searchText = searchTextField.text ?? ""
-        DispatchQueue.global().async {
-            self.tvShowManager.fetchTVShowData(name: searchText) { tvShow, error in
-                if let tvShowList = tvShow {
-                    self.tvShows = [tvShowList]
-                }
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
+        if let searchText = searchTextField.text {
+            DispatchQueue.global().async {
+                self.tvShowManager.fetchTVShowData(name: searchText) { tvShow, error in
+                    if let tvShowList = tvShow {
+                        self.tvShows = [tvShowList]
+                    }
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
                 }
             }
         }
     }
-    
 }

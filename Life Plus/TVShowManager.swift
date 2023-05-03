@@ -10,19 +10,20 @@ import Foundation
 class TVShowManager {
     
     func fetchTVShowData(name: String, compilation: @escaping(TVShow?, Error?)-> Void) {
-        let url = URL(string: "https://api.tvmaze.com/singlesearch/shows?q=\(name)")!
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            if error != nil {
-                return
-            }
-            if let data = data {
-                do {
-                    let tvShowData = try JSONDecoder().decode(TVShow.self, from: data)
-                    compilation(tvShowData, nil)
-                } catch {
-                    compilation(nil, error)
+        if let url = URL(string: "https://api.tvmaze.com/singlesearch/shows?q=\(name)") {
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                if error != nil {
+                    return
                 }
-            }
-        }.resume()
+                if let data = data {
+                    do {
+                        let tvShowData = try JSONDecoder().decode(TVShow.self, from: data)
+                        compilation(tvShowData, nil)
+                    } catch {
+                        compilation(nil, error)
+                    }
+                }
+            }.resume()
+        }
     }
 }
