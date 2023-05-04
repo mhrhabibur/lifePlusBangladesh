@@ -11,4 +11,5 @@ class TVShowTableViewCell: UITableViewCell {
     @IBOutlet var poster: UIImageView!
     @IBOutlet var name: UILabel!
     @IBOutlet var network: UILabel!
+    var tvShows: TVShow?
 }

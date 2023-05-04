@@ -16,9 +16,8 @@ class DetailViewController: UIViewController {
     @IBOutlet var scheduleLabel: UILabel!
     @IBOutlet var goBackButton: UIButton!
     
-    var tvShows:[TVShow]?
-    var tvShowsList = [TVShow]()
-    
+    var tvShows: TVShow?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         goBackButton.layer.masksToBounds = true
@@ -26,9 +25,6 @@ class DetailViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if let tvShow = tvShows {
-            tvShowsList = tvShow
-        }
         refreshPage()
     }
     
@@ -37,17 +33,17 @@ class DetailViewController: UIViewController {
     }
     
     func refreshPage() {
-        if let posterImageURL = tvShowsList[0].image?.original {
+        if let posterImageURL = tvShows?.image?.original {
             let url = URL(string: posterImageURL)!
             posterImageView.sd_setImage(with: url, placeholderImage: UIImage(systemName: "person"))
         }
-        if let showName = tvShowsList[0].name {
+        if let showName = tvShows?.name {
             nameLabel.text = showName
         }
-        if let network = tvShowsList[0].network?.name {
+        if let network = tvShows?.network?.name {
             networkLabel.text = network
         }
-        if let time = tvShowsList[0].schedule?.time, let schedule = tvShowsList[0].schedule?.days {
+        if let time = tvShows?.schedule?.time, let schedule = tvShows?.schedule?.days {
             if schedule.count != 0 {
                 scheduleLabel.text = "\(time), \(schedule[0])"
             } else {
