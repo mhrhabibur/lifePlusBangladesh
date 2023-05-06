@@ -45,7 +45,11 @@ class DetailViewController: UIViewController {
         }
         if let time = tvShows?.schedule?.time, let schedule = tvShows?.schedule?.days {
             if schedule.count != 0 {
-                scheduleLabel.text = "\(time), \(schedule[0])"
+                if time.isEmpty {
+                    scheduleLabel.text = "\(schedule[0])"
+                } else {
+                    scheduleLabel.text = "\(time), \(schedule[0])"
+                }
             } else {
                 scheduleLabel.text = "No Date Found"
             }

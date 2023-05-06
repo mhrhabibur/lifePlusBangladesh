@@ -20,7 +20,7 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
     var myUserProfileID: String = ""
     var userID: String?
     var users: [NSManagedObject] = []
-    var myUserInformation: Set<[String: String]> = []
+    var userData: Set<[String: String]> = []
     var userName: String = ""
     
     override func viewDidLoad() {
@@ -60,7 +60,7 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return tvShows.count
+        return tvShows.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -111,11 +111,11 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
         do {
             users = try managedContext.fetch(fetchRequest)
             for user in users {
-                myUserInformation.insert([user.value(forKeyPath: "userName") as! String: user.value(forKeyPath: "userName") as! String])
+                userData.insert([user.value(forKeyPath: "userName") as! String: user.value(forKeyPath: "userName") as! String])
             }
-            for info in myUserInformation {
-                if let myInfo = info["\(myUserProfileID)"] {
-                    userName = myInfo
+            for data in userData {
+                if let userNameData = data["\(myUserProfileID)"] {
+                    userName = userNameData
                 }
             }
         } catch let error as NSError {

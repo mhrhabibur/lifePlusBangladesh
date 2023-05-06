@@ -37,7 +37,6 @@ class UserProfileViewController: UIViewController {
             userProfileName = userID
         }
         let phone = fetchUserNameData(name: userProfileName)
-        print("Here is my phone Number \(phone)")
         phoneNumberLabel.text = "Phone Number: \(phone)"
         
         let name = fetchNameData(name: userProfileName)

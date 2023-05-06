@@ -81,9 +81,9 @@ class RegistrationViewController: UIViewController {
             for user in users {
                 userData.insert([user.value(forKeyPath: "userName") as! String: user.value(forKeyPath: "userName") as! String])
             }
-            for info in userData {
-                if let myInfo = info["\(userNameTextField.text!)"] {
-                    userName = myInfo
+            for data in userData {
+                if let userNameData = data["\(userNameTextField.text!)"] {
+                    userName = userNameData
                 }
             }
         } catch let error as NSError {

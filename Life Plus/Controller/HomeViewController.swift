@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var userNameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
@@ -20,6 +20,9 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(NSHomeDirectory())
+        userNameTextField.delegate = self
+        passwordTextField.delegate = self
         logInButton.layer.cornerRadius = 12
         logInButton.layer.masksToBounds = true
         registrationButton.layer.masksToBounds = true
@@ -28,8 +31,10 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        userNameTextField.text = ""
+        passwordTextField.text = ""
     }
-    
+ 
     @IBAction func logInButtonTapped(_ sender: UIButton) {
         let logInVC = storyboard?.instantiateViewController(withIdentifier: "LogInVC") as! DashboardViewController
         guard let userNameText = userNameTextField.text, let passwordText = passwordTextField.text  else {
@@ -52,10 +57,8 @@ class HomeViewController: UIViewController {
             present(alert, animated: true)
             return
         }
-                logInVC.userID = userNameText
-                navigationController?.pushViewController(logInVC, animated: true)
-            
-        
+        logInVC.userID = userNameText
+        navigationController?.pushViewController(logInVC, animated: true)
     }
     
     @IBAction func registrationButtonTapped(_ sender: UIButton) {
