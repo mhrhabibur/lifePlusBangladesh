@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 import SDWebImage
 
 class DashboardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
@@ -16,6 +17,11 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
     
     let tvShowManager = TVShowManager()
     var tvShows = [TVShow]()
+    var myUserProfileID: String = ""
+    var userID: String?
+    var users: [NSManagedObject] = []
+    var myUserInformation: Set<[String: String]> = []
+    var userName: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,9 +34,16 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
         searchButton.layer.cornerRadius = 12
         searchTextField.addTarget(self, action: #selector(searchTvShow(_:)), for: .editingChanged)
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let userID = userID {
+            myUserProfileID = userID
+        }
+    }
     
     @objc func viewUserProfile() {
         let userProfileVC = storyboard?.instantiateViewController(withIdentifier: "UserProfileVC") as! UserProfileViewController
+        userProfileVC.userID = myUserProfileID
         navigationController?.pushViewController(userProfileVC, animated: true)
     }
     
@@ -86,5 +99,28 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
                 }
             }
         }
+    }
+    
+    func fetchUserNameData(name: String) -> String{
+        var userName: String = ""
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return ""
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "User")
+        do {
+            users = try managedContext.fetch(fetchRequest)
+            for user in users {
+                myUserInformation.insert([user.value(forKeyPath: "userName") as! String: user.value(forKeyPath: "userName") as! String])
+            }
+            for info in myUserInformation {
+                if let myInfo = info["\(myUserProfileID)"] {
+                    userName = myInfo
+                }
+            }
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+        return userName
     }
 }
