@@ -16,7 +16,7 @@ class HomeViewController: UIViewController {
     @IBOutlet var registrationButton: UIButton!
     
     var users: [NSManagedObject] = []
-    var myUserInformation: Set<[String: String]> = []
+    var userData: Set<[String: String]> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,9 +73,9 @@ class HomeViewController: UIViewController {
         do {
             users = try managedContext.fetch(fetchRequest)
             for user in users {
-                myUserInformation.insert([user.value(forKeyPath: "userName") as! String: user.value(forKeyPath: "userName") as! String])
+                userData.insert([user.value(forKeyPath: "userName") as! String: user.value(forKeyPath: "userName") as! String])
             }
-            for info in myUserInformation {
+            for info in userData {
                 if let myInfo = info["\(userNameTextField.text!)"] {
                     userName = myInfo
                 }
@@ -96,11 +96,11 @@ class HomeViewController: UIViewController {
         do {
             users = try managedContext.fetch(fetchRequest)
             for user in users {
-                myUserInformation.insert([user.value(forKeyPath: "password") as! String: user.value(forKeyPath: "password") as! String])
+                userData.insert([user.value(forKeyPath: "password") as! String: user.value(forKeyPath: "password") as! String])
             }
-            for info in myUserInformation {
-                if let myInfo = info["\(passwordTextField.text!)"] {
-                    passwordText = myInfo
+            for info in userData {
+                if let userInfo = info["\(passwordTextField.text!)"] {
+                    passwordText = userInfo
                 }
             }
         } catch let error as NSError {
